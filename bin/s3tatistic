@@ -15,7 +15,10 @@ command :buckets do |c|
   c.example 'description', 'command example'
   c.option '--some-switch', 'Some switch that does something'
   c.action do |args, options|
-    puts S3tatistic::AmazonS3.buckets
+    $VERBOSE = nil # temp fix until better formatter
+    buckets = S3tatistic::AmazonS3.buckets
+
+    S3tatistic::Formatter.format_buckets(buckets)
   end
 end
 

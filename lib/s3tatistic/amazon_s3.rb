@@ -7,7 +7,7 @@ class S3tatistic::AmazonS3
     end
 
     def buckets
-      ss3.buckets.map {|b| bucket_info(b) rescue next}.select{|b| !b.nil?}
+      ss3.buckets.map(&:name).map {|b| info(b) rescue next}.select{|b| !b.nil?}
     end
 
     def info(bucket_name)
@@ -37,7 +37,7 @@ class S3tatistic::AmazonS3
     end
 
     def last_modified(objects)
-      objects.sort_by(&:last_modified).reverse.first
+      objects.sort_by(&:last_modified).reverse.first.key
     end
   end
 end
