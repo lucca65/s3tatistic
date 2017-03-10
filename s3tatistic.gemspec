@@ -3,6 +3,7 @@ Gem::Specification.new do |s|
   s.version     = '0.1.0'
   s.summary     = "Show statistics for your S3 buckets!"
   s.executables << 's3tatistic'
+  s.files       = ['lib/s3tatistic.rb', 'lib/s3tatistic/amazon_s3.rb']
   s.authors     = ["Julien Lucca"]
   s.email       = 'julienlucca@gmail.com'
   s.license     = 'MIT'

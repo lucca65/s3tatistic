@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    aasm (4.11.1)
     ast (2.3.0)
     aws-sdk (2.8.0)
       aws-sdk-resources (= 2.8.0)
@@ -97,7 +96,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aasm
   aws-sdk
   netrc
   pry

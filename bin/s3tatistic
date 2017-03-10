@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
+require 's3tatistic'
 require 'commander/import'
 
 program :name, 's3tatistic'
@@ -8,18 +9,18 @@ program :version, '0.0.1'
 program :description, 'Show statistics for your S3 buckets!'
 
 command :buckets do |c|
-  c.syntax = 's3tatistic buckets, [options]'
-  c.summary = ''
-  c.description = ''
+  c.syntax = 's3tatistic buckets'
+  c.summary = 'list all buckets names'
+  c.description = 'Shows a list of all the buckets avaliable'
   c.example 'description', 'command example'
   c.option '--some-switch', 'Some switch that does something'
   c.action do |args, options|
-    # Do something or c.when_called S3tatistic::Commands::Buckets,
+    puts S3tatistic::AmazonS3.buckets
   end
 end
 
-command :creation, do |c|
-  c.syntax = 's3tatistic creation, [options]'
+command :info do |c|
+  c.syntax = 's3tatistic info, [options]'
   c.summary = ''
   c.description = ''
   c.example 'description', 'command example'
@@ -29,35 +30,3 @@ command :creation, do |c|
   end
 end
 
-command :files, do |c|
-  c.syntax = 's3tatistic files, [options]'
-  c.summary = ''
-  c.description = ''
-  c.example 'description', 'command example'
-  c.option '--some-switch', 'Some switch that does something'
-  c.action do |args, options|
-    # Do something or c.when_called S3tatistic::Commands::Files,
-  end
-end
-
-command :size, do |c|
-  c.syntax = 's3tatistic size, [options]'
-  c.summary = ''
-  c.description = ''
-  c.example 'description', 'command example'
-  c.option '--some-switch', 'Some switch that does something'
-  c.action do |args, options|
-    # Do something or c.when_called S3tatistic::Commands::Size,
-  end
-end
-
-command :recent do |c|
-  c.syntax = 's3tatistic recent [options]'
-  c.summary = ''
-  c.description = ''
-  c.example 'description', 'command example'
-  c.option '--some-switch', 'Some switch that does something'
-  c.action do |args, options|
-    # Do something or c.when_called S3tatistic::Commands::Recent
-  end
-end

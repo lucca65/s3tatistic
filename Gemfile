@@ -6,7 +6,6 @@ ruby '2.3.1'
 gem 'tty'
 gem 'tty-prompt'
 
-gem 'aasm'
 gem 'aws-sdk'
 
 gem 'netrc'
