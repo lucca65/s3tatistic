@@ -7,6 +7,20 @@ Show statistics for your S3 buckets 🗑📈
 $ gem install s3tatistic
 $ s3tatistic buckets
 ```
+## Usage
+
+### Avaliable commands
+
+You can list all your buckets with `s3tatistic buckets`, info for a single bucket with `s3tatistic info BUCKET_NAME`
+
+### Options
+
+### Getting help
+
+```shell
+$ s3tatistic help # Help for whole program
+$ s3tatistic buckets --help # Help for a single command
+```
 
 ## Contribuiting
 

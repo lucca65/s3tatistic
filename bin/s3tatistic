@@ -5,31 +5,32 @@ require 's3tatistic'
 require 'commander/import'
 
 program :name, 's3tatistic'
-program :version, '0.0.1'
+program :version, '0.1.0'
 program :description, 'Show statistics for your S3 buckets!'
 
 command :buckets do |c|
-  c.syntax = 's3tatistic buckets'
+  c.syntax = 's3tatistic buckets [options]'
   c.summary = 'list all buckets names'
   c.description = 'Shows a list of all the buckets avaliable'
-  c.example 'description', 'command example'
-  c.option '--some-switch', 'Some switch that does something'
+  # c.example 'description', 'command example'
+  c.option '--block SIZE', 'Shows the file size in (k/m/g/t)'
   c.action do |args, options|
+    options.default \
+              block: 'k'
     $VERBOSE = nil # temp fix until better formatter
     buckets = S3tatistic::AmazonS3.buckets
 
-    S3tatistic::Formatter.format_buckets(buckets)
+    puts S3tatistic::Formatter.format_buckets(buckets, options)
   end
 end
 
 command :info do |c|
-  c.syntax = 's3tatistic info, [options]'
+  c.syntax = 's3tatistic info [options]'
   c.summary = ''
   c.description = ''
-  c.example 'description', 'command example'
-  c.option '--some-switch', 'Some switch that does something'
   c.action do |args, options|
     # Do something or c.when_called S3tatistic::Commands::Creation,
+    puts 'oh no, not yet implemented'
   end
 end
 
